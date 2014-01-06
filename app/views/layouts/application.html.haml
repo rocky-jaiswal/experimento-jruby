@@ -1,0 +1,18 @@
+!!!
+%html
+  %head
+    %title Experimento
+    = stylesheet_link_tag    "application", media: "all"
+    = csrf_meta_tags
+  %body
+    / Header
+    = render "shared/header"
+    = render "shared/messages"
+    / Main Page Content
+    .row
+      .small-12.large-12.columns
+        = yield
+    / Footer
+    = render "shared/footer"
+  - if Rails.env.development?
+    %script{"data-main" => "/assets/js/.tmp/scripts/main", src: "/assets/js/app/bower_components/requirejs/require.js"}

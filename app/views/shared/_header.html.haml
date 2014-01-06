@@ -1,0 +1,11 @@
+.row.header
+  .large-12.columns
+    %nav.top-bar
+      %ul.title-area
+        %li.name
+          %h1
+            %a{href: "/"} Experimento (JRuby)
+      %ul.right
+        %li.has-form
+          - if user_signed_in?
+            %a.button{href: "/users/sign_out"} Logout
