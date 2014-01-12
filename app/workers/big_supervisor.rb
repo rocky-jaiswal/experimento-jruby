@@ -8,7 +8,7 @@ class BigSupervisor
   end
 
   def worker_2
-    worker2 = TimeConsumingWorker.new
+    worker2 = AnotherTimeConsumingWorker.new
     Celluloid::Actor[:worker2] = worker2
     Celluloid::Actor[:worker2].async.work('Worker-2', 100)
   end
