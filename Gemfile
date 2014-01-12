@@ -30,6 +30,9 @@ gem 'jbuilder', '~> 1.2'
 gem 'haml'
 gem 'devise'
 gem 'simple_form'
+gem 'sidekiq'
+gem 'celluloid'
+gem 'sinatra', '>= 1.3.0', :require => nil
 
 group :test, :development do
   gem 'puma'

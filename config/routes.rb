@@ -1,3 +1,5 @@
+require 'sidekiq/web'
+
 ExperimentoJruby::Application.routes.draw do
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -57,4 +59,6 @@ ExperimentoJruby::Application.routes.draw do
   devise_for :users
   root 'pages#login'
   get 'home' => 'pages#home', as: :home
+  get 'work' => 'pages#work', as: :work
+  mount Sidekiq::Web => '/sidekiq'
 end
