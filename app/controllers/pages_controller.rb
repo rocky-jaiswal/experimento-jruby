@@ -13,7 +13,7 @@ class PagesController < ApplicationController
     #supervisor = BigSupervisor.new
     #Celluloid::Actor[:supervisor] = supervisor
     #Celluloid::Actor[:supervisor].async.work
-    BigSupervisor.new.async.worker_1
+    BigSupervisor.new.async.work
     
     render :json => {success: true}.as_json
   end

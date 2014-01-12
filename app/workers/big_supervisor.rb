@@ -1,5 +1,15 @@
 class BigSupervisor
   include Celluloid
+  include Sidekiq::Worker
+
+  def work
+    Sidekiq::Client.push('class' => self.class, 'args' => [])
+  end
+
+  def perform
+    Celluloid::Actor[:supervisor] = self.class.new
+    Celluloid::Actor[:supervisor].async.worker_1
+  end
 
   def worker_1
     worker1 = TimeConsumingWorker.new

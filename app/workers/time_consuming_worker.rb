@@ -10,7 +10,7 @@ class TimeConsumingWorker
     File.open("/home/rockyj/tmp/" + name, "w") do |f|
       count.times { f.puts(name) }
     end
-    BigSupervisor.new.async.worker_2
+    Celluloid::Actor[:supervisor].async.worker_2
   end
 
 end
